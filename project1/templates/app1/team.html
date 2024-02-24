@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+    {% block title %}
+    <title>Team Form</title>
+    {% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+        <h1>List Form</h1>
+        {% csrf_token %}
+        {{form | crispy}}
+        <input type="submit" value="SUBMIT">
+        <input type="reset" value="RESET">
+    </form>
+</div>
+{% endblock %}

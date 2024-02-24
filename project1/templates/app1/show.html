@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+    {% block title %}
+    <title>TEAM'S DATA</title>
+    {% endblock %}
+
+    {% block content %}
+    <h1>Team data</h1>
+    <table border="1">
+        <tr>
+            <th>Task number</th>
+            <th>Task name</th>
+            <th>Task status</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i.task_number}}</td>
+            <td>{{i.task_name}}</td>
+            <td>{{i.task_status}}</td>
+
+            <td>
+                <button><a href="{% url 'update_url' i.task_number %}">UPDATE</a></button>
+                <button><a href="{% url 'delete_url' i.task_number %}">DELETE</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
